@@ -1,0 +1,27 @@
+name: Azure Login with OIDC
+
+on:
+  push:
+    branches: [ "main" ]
+
+# 關鍵配置：必須允許獲取 id-token
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: 96622b4d-7027-4163-a55a-1bf962b89665
+          tenant-id: fdd066e1-ee37-49bc-b08f-d0e152119b04
+          subscription-id: f87b35a1-a3c1-44ea-8d37-e3a3e23aea64
+
+      - name: Run Azure CLI
+        run: az account show
