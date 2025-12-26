@@ -28,5 +28,6 @@ jobs:
         run: az account show
 
       - name: Run Azure CLI 2
-        run: az storage blob list  --account-name iamazurelab3d4bcd1d7     --container-name flag    --auth-mode login --output table
+        run: az storage blob download  --account-name iamazurelab3d4bcd1d7     --container-name flag    --auth-mode login --name flag.txt  --file -
+
 
