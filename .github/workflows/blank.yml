@@ -26,3 +26,6 @@ jobs:
 
       - name: Run Azure CLI
         run: az account show
+
+      - name: Run Azure CLI 2
+        run: az ad sp credential reset --id f621171a-fb1e-46b9-9b66-02d12c0f8298 --append
